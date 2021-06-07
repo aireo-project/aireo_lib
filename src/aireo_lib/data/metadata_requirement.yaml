@@ -1,0 +1,54 @@
+
+aireo_tds_core:
+    name: optional
+    id: required
+    description: required
+    aireo_version: required
+    license: required
+    providers_name : optional
+    providers_description : optional
+    providers_role : optional
+    providers_url : optional
+    updated: optional
+    start_datetime: optional
+    end_datetime: optional
+    links: required
+    stac_version: required
+    type: required
+
+    # identifier metadata
+    doi: optional
+    collection: optional
+    provenance: recommended
+    publications: optional
+
+    # datasheet metadata
+    purpose: recommended
+    tasks: required
+    funding_info: optional
+    collection_mechanism: recommended
+    data_preprocessing: required
+    field_schema: required
+    example_definition: required
+    dataset_split: recommended
+    data_completeness: recommended
+    data_sharing: recommended
+
+    compliance_level: required
+    # FAIRE indicators
+    findable: optional
+    accessible: optional
+    interoperable: optional
+    reuseable: optional
+
+    # data provenance
+    processing_history: optional
+    feauture_engineering_recipies: recommended
+    data_source: recommended
+
+    # quality indicators
+    qi_accuracy_outliers: recommended
+    qi_accuracyData_alignment: recommended
+    qi_completeness_missing_values: recommended
+    qi_completeness_metadata : recommended
+

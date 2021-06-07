@@ -1,0 +1,15 @@
+GeoreferencedEOImage: 
+    class_name: GeoreferencedEOImageModel # name of the Stac pydantic extension class
+    extension_name: georeferenced_eo_image  # vendor extension name to be used in json files
+
+ReferenceDataProfile:
+    class_name: ReferenceDataModel
+    extension_name: reference_data
+
+GeoreferencedEODataProfile:
+    class_name: GeoreferencedEODataModel
+    extension_name: georeferenced_eo_data
+
+GeoreferencedEODatacubeProfile:
+    class_name: GeoreferencedEODataCubeModel
+    extension_name: georeferenced_eo_datacube
