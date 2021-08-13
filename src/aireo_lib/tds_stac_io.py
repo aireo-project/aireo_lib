@@ -676,8 +676,9 @@ class DatasetSTACCatalog:
                 if 'collection_mechanism' in core_metadata_d:
                     to_write += "\n\n### Collection mechanism of the underlying data \n" + core_metadata_d[
                         'collection_mechanism']
-                to_write += "\n\n### Pre-processing steps applied to the dataset \n" + core_metadata_d[
-                    'data_preprocessing']
+
+                    to_write += "\n\n### Pre-processing steps applied to the dataset \n" + 'type: '+ core_metadata_d[
+                        'data_preprocessing']['type'] + '\n' + 'recipe: ' + core_metadata_d['data_preprocessing']['recipe']
 
                 # Converting field_schema to a human readable text
                 to_write += "\n\n### What are the different variables and what AIREO profiles do they belong to?\n"

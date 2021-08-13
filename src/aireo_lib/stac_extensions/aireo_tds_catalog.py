@@ -19,6 +19,10 @@ class FieldSchema(BaseModel):
     features: typing.Dict[str, typing.List[str]]
     references: typing.Dict[str, typing.List[str]]
 
+class DataPreprocessing(BaseModel):
+    type: str
+    recipe: str
+
 class ComplianceLevel(str, Enum):
     level_1 = 'level 1'
     level_2 = 'level 2'
@@ -68,7 +72,8 @@ class AIREOTDSCatalog(stac_pydantic.Catalog):
     tasks: typing.List[Tasks]  # should belong to a list of fix values
     funding_info: Optional[str]
     collection_mechanism: Optional[str]
-    data_preprocessing:str
+    #data_preprocessing:typing.Dict
+    data_preprocessing: DataPreprocessing
     field_schema: FieldSchema
     example_definition: str
     dataset_split: Optional[str]
@@ -89,6 +94,7 @@ class AIREOTDSCatalog(stac_pydantic.Catalog):
     qi_accuracyData_alignment: Optional[str]
     qi_completeness_missing_values: Optional[float]
     qi_completeness_metadata : Optional[float]
+    qi_custom: Optional[typing.Dict]
 
     #class Config:
     #    arbitrary_types_allowed = False
@@ -105,7 +111,8 @@ if __name__ == "__main__":
      "created": "NULL",
      "providers": "Forest Observation System",
      "providers_name": "Forest Observation System",
-     "providers_url": "https://forest-observation-system.net/",
+     "providers_url": {"Spacenet":"https://spacenet.ai/", 
+                            'AIREO': 'https://aireo.net/'}, 
      "platform": "sentinel-2",
      "instrument": "NULL",
      "tasks": ['regression'],
@@ -118,7 +125,7 @@ if __name__ == "__main__":
      "task": "",
      "collection_mechanism": "",
      "example_definition": "",
-     "data_preprocessing": "",
+     "data_preprocessing": {'type':'free-text', 'recipe':'Original dataset included images from one AOI as seperate tiff files.'},
      "AOI": ["AOI 1", "AOI 2", "AOI 3"],
      "links": [{"rel": "root",
        "href": "./EO_TDS.json",
